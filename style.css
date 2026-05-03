@@ -1,0 +1,305 @@
+:root {
+    --bg-color: #0d1117;
+    --text-main: #c9d1d9;
+    --accent-color: #2ea043;
+    --card-bg: #161b22;
+    --border-color: #30363d;
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+body.booting {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#system-status {
+    position: fixed;
+    top: 15px;
+   right: 20px;
+   color: var(--accent-color);
+   font-size: 0.9rem;
+   z-index: 1000;
+   font-family: 'Courier New', Courier, monospace;
+}
+#boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#boot-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+#boot-center svg {
+    width: 200px;
+    height: 200px;
+}
+
+#boot-center p {
+    color: var(--text-main);
+    margin-top: 20px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+#boot-logs {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 80%;
+}
+
+.boot-log-line {
+    color: #8b949e;
+    margin: 4px 0;
+    font-size: 1.1rem;
+}
+
+.boot-log-line.success {
+    color: var(--accent-color);
+}
+
+header {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #8b949e;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.in-learning {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.in-learning h3 {
+    color: #8b949e;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.learning-list {
+    list-style-type: none;
+    padding-left: 40px;
+    margin-top: 0;
+}
+
+.learning-list li {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.learning-list li::before {
+    content: "•";
+    color: var(--text-main);
+    position: absolute;
+    left: -20px;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    transition: color 0.2s ease;
+}
+
+.learning-list a {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: #30363d;
+    text-underline-offset: 4px;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.learning-list a:hover {
+    color: var(--accent-color);
+    text-decoration-color: var(--accent-color);
+    transform: translateX(8px);
+}
+
+.learning-list li:hover::before {
+    color: var(--accent-color);
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    display: block;
+    text-decoration: none;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.project-card h3 {
+    margin: 0 0 10px 0;
+    color: #fff;
+}
+
+.project-card p {
+    margin: 0;
+    color: #8b949e;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    color: #8b949e;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    nav a {
+        margin-right: 15px;
+        font-size: 0.95rem;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    .learning-list {
+        padding-left: 25px;
+    }
+
+    .learning-list li::before {
+        left: -15px;
+    }
+
+    #system-status {
+        top: 10px;
+        right: 10px;
+        font-size: 0.75rem;
+    }
+
+    #boot-center svg {
+        width: 120px;
+        height: 120px;
+    }
+
+    #boot-center p {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    #boot-logs {
+        left: 5%;
+        width: 90%;
+    }
+
+    .boot-log-line {
+        font-size: 0.9rem;
+        word-wrap: break-word;
+    }
+}

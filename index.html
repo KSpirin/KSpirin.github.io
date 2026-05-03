@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="system-status">[ Uptime: <span id="uptime-counter">00:00:00</span> ]</div>
+
+    <div id="boot-screen">
+        <div id="boot-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <p class="blink">Initializing KSpirin_OS...</p>
+        </div>
+        <div id="boot-logs" style="display: none;"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1 id="typewriter"></h1>
+            <p class="subtitle">CS Student<br>
+                Aspiring Systems Programmer & Cybersecurity Enthusiast</p>
+            <nav>
+                <a href="#about">•About</a>
+                <a href="#skills">•Skills</a>
+                <a href="#learning">•Learning</a>
+                <a href="#projects">•Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>> echo $MOTD</h2>
+            <p>Greetings, companion who somehow got lost here. <br>
+                This is my personal portfolio, where you can explore my study roadmap and the projects I plan to build
+                in the future.</p>
+        </section>
+
+        <section id="skills">
+            <h2>> ls ./skills/</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">C / C++</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+            </div>
+        </section>
+
+        <section id="learning">
+            <h2>> tail -f ./learning.log</h2>
+            <div class="learning">
+                <div class="in-learning">
+                    <h3>my learning roadmap</h3>
+                </div>
+                <ul class="learning-list">
+                    <li>
+                        <a href="https://github.com/KSpirin/DATA-STRUCTURE-101" target="_blank">C++ DATA STRUCTURE</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KSpirin/self-learning-java-oop" target="_blank">JAVA & OOP</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>> head ./projects.md</h2>
+            <div class="project-list">
+                <a href="https://github.com/KSpirin/" target="_blank" class="project-card">
+                    <h3>Empty</h3>
+                    <p>Description.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p id="footer-text"
+                data-html="&copy; 2026 <a href='https://github.com/KSpirin'>KSpirin.</a> Hosted on GitHub Pages.">
+                © 2026 KSpirin. Hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
