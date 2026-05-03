@@ -1,5 +1,7 @@
 # Portfolio
 
+![Portfolio Preview](img/preview.png)
+
 A personal portfolio website featuring a terminal-themed user interface.
 
 ## Overview
@@ -15,7 +17,7 @@ This project is a web-based portfolio designed to look like a system boot sequen
 ## Files
 
 - `index.html`: The main entry point and structure of the site.
-- `favicon.ico`: The site's tab icon.
+- `img/`: Contains assets like `favicon.ico` and `preview.png`.
 - `style.css`: Contains the visual styling and terminal-inspired theme.
 - `script.js`: Handles the interactive boot sequence and UI logic.
 
