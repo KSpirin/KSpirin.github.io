@@ -117,3 +117,70 @@ document.querySelectorAll('nav a').forEach(anchor => {
         });
     });
 });
+const githubHandle = 'KSpirin';
+async function fetchGitHubStats() {
+    try {
+        const response = await fetch(`https://api.github.com/users/${githubHandle}`);
+        if (!response.ok) return;
+        const data = await response.json();
+
+        document.getElementById('repo-count').textContent = data.public_repos;
+    } catch (error) {
+        console.error("Error fetching stats:", error);
+    }
+}
+async function fetchGitHubActivity() {
+    const container = document.getElementById('github-activity');
+    try {
+        const response = await fetch(`https://api.github.com/users/${githubHandle}/events/public`);
+        if (!response.ok) throw new Error('Network error');
+
+        const events = await response.json();
+        container.innerHTML = '';
+
+        const recentEvents = events.slice(0, 5);
+
+        if (recentEvents.length === 0) {
+            container.innerHTML = '<p style="color: #8b949e;">[ OK ] No recent activity.</p>';
+            return;
+        }
+
+        recentEvents.forEach(ev => {
+            const dateObj = new Date(ev.created_at);
+            const dateStr = dateObj.toISOString().split('T')[0];
+
+            let actionText = '';
+            let color = 'var(--text-main)';
+
+            switch (ev.type) {
+                case 'PushEvent':
+                    actionText = `Pushed to <b>${ev.repo.name}</b>`;
+                    color = 'var(--accent-color)';
+                    break;
+                case 'CreateEvent':
+                    actionText = `Created <b>${ev.repo.name}</b>`;
+                    color = '#58a6ff';
+                    break;
+                case 'WatchEvent':
+                    actionText = `Starred <b>${ev.repo.name}</b>`;
+                    color = '#e3b341';
+                    break;
+                default:
+                    actionText = `Updated <b>${ev.repo.name}</b>`;
+            }
+
+            const p = document.createElement('p');
+            p.style.margin = "4px 0";
+            p.style.fontSize = "0.95rem";
+            p.innerHTML = `<span style="color: #8b949e;">[${dateStr}]</span> <span style="color: ${color};">></span> ${actionText}`;
+            container.appendChild(p);
+        });
+
+    } catch (error) {
+        console.error("Error fetching activity:", error);
+        container.innerHTML = '<p style="color: #f85149;">[ERROR] System log unreachable.</p>';
+    }
+}
+
+fetchGitHubActivity();
+fetchGitHubStats();

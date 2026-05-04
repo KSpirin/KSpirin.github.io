@@ -25,7 +25,10 @@
 </head>
 
 <body>
-    <div id="system-status">[ Uptime: <span id="uptime-counter">00:00:00</span> ]</div>
+    <div id="system-status">
+        [ Repos: <span id="repo-count" style="color: var(--text-main);">--</span> | Uptime: <span
+            id="uptime-counter">00:00:00</span> ]
+    </div>
 
     <div id="boot-screen">
         <div id="boot-center">
@@ -54,11 +57,23 @@
     </header>
 
     <main class="container">
-        <section id="about">
-            <h2>> echo $MOTD</h2>
-            <p>Greetings, companion who somehow got lost here. <br>
-                This is my personal portfolio, where you can explore my study roadmap and the projects I plan to build
-                in the future.</p>
+        <section id="about" class="hover-log-container">
+            <h2 class="dynamic-heading">
+                <span class="cmd-motd">> echo $MOTD</span>
+                <span class="cmd-log">> tail -f /var/log/github.log</span>
+            </h2>
+            <div class="content-wrapper">
+                <div class="motd-content">
+                    <p>Greetings, companion who somehow got lost here. <br>
+                        This is my personal portfolio, where you can explore my study roadmap and the projects I plan to build
+                        in the future.</p>
+                </div>
+                <div class="activity-log-content">
+                    <div id="github-activity">
+                        <p class="blink" style="color: #8b949e;">Fetching system logs...</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="skills">
@@ -71,7 +86,7 @@
         </section>
 
         <section id="learning">
-            <h2>> tail -f ./learning.log</h2>
+            <h2>> ps aux | grep learning</h2>
             <div class="learning">
                 <div class="in-learning">
                     <h3>my learning roadmap</h3>

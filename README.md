@@ -2,23 +2,28 @@
 
 ![Portfolio Preview](img/preview.png)
 
-A personal portfolio website featuring a terminal-themed user interface.
+A terminal-themed portfolio site with GitHub API integration.
 
-## Overview
+## Features
 
-This project is a web-based portfolio designed to look like a system boot sequence and command-line interface. It showcases my skills, current learning roadmap, and projects.
+- **Boot Simulation**: A JavaScript-driven boot sequence on page load.
+- **GitHub Integration**: Fetches public repo count and recent activity via the GitHub API.
+- **Interactive Logs**: Hovering over the "About" section toggles between the MOTD and a recent activity log.
+- **Uptime Counter**: A live timer showing seconds since the page was opened.
+- **SEO Ready**: Includes Open Graph and Meta tags for social media previews.
 
 ## Tech Stack
 
-- **HTML5**: Page structure and content.
-- **CSS3**: Layout, terminal aesthetics, and boot animations.
-- **JavaScript**: Boot sequence simulation, uptime counter, and text effects.
+- **HTML5/CSS3**: Custom terminal theme and layout.
+- **JavaScript**: Handles the boot sequence, API calls, and UI animations.
 
-## Files
+## Directory Structure
 
-- `index.html`: The main entry point and structure of the site.
-- `img/`: Contains assets like `favicon.ico` and `preview.png`.
-- `style.css`: Contains the visual styling and terminal-inspired theme.
-- `script.js`: Handles the interactive boot sequence and UI logic.
+- `index.html`: Main structure and meta tags.
+- `style.css`: Terminal styling and hover transitions.
+- `script.js`: Logic for fetching data and system effects.
+- `img/`: Assets including `favicon.ico` and `preview.png`.
 
+## License
 
+MIT License - see [LICENSE](LICENSE) for details.
