@@ -10,6 +10,7 @@ A terminal-themed portfolio site with GitHub API integration.
 - **GitHub Integration**: Fetches public repo count and recent activity via the GitHub API.
 - **Interactive Logs**: Hovering over the "About" section toggles between the MOTD and a recent activity log.
 - **Uptime Counter**: A live timer showing seconds since the page was opened.
+- **Theme Toggling**: Switch between Dark and Light (Pink-themed) modes via the system status bar.
 - **SEO Ready**: Includes Open Graph and Meta tags for social media previews.
 
 ## Tech Stack

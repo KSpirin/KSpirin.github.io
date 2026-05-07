@@ -141,7 +141,7 @@ async function fetchGitHubActivity() {
         const recentEvents = events.slice(0, 5);
 
         if (recentEvents.length === 0) {
-            container.innerHTML = '<p style="color: #8b949e;">[ OK ] No recent activity.</p>';
+            container.innerHTML = '<p style="color: var(--text-muted);">[ OK ] No recent activity.</p>';
             return;
         }
 
@@ -159,11 +159,11 @@ async function fetchGitHubActivity() {
                     break;
                 case 'CreateEvent':
                     actionText = `Created <b>${ev.repo.name}</b>`;
-                    color = '#58a6ff';
+                    color = 'var(--github-create)';
                     break;
                 case 'WatchEvent':
                     actionText = `Starred <b>${ev.repo.name}</b>`;
-                    color = '#e3b341';
+                    color = 'var(--github-star)';
                     break;
                 default:
                     actionText = `Updated <b>${ev.repo.name}</b>`;
@@ -172,15 +172,26 @@ async function fetchGitHubActivity() {
             const p = document.createElement('p');
             p.style.margin = "4px 0";
             p.style.fontSize = "0.95rem";
-            p.innerHTML = `<span style="color: #8b949e;">[${dateStr}]</span> <span style="color: ${color};">></span> ${actionText}`;
+            p.innerHTML = `<span style="color: var(--text-muted);">[${dateStr}]</span> <span style="color: ${color};">></span> ${actionText}`;
             container.appendChild(p);
         });
 
     } catch (error) {
         console.error("Error fetching activity:", error);
-        container.innerHTML = '<p style="color: #f85149;">[ERROR] System log unreachable.</p>';
+        container.innerHTML = '<p style="color: var(--status-error);">[ERROR] System log unreachable.</p>';
     }
 }
 
 fetchGitHubActivity();
 fetchGitHubStats();
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.textContent = 'Dark';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.textContent = 'Light';
+    }
+});
